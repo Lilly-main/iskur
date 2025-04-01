@@ -20,3 +20,7 @@ Route::group(['middleware' => 'admin'], function()
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/', function () {
+    return view('issizlik_odnegi');
+});
