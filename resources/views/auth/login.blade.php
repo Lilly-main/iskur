@@ -68,10 +68,12 @@
 									<!--begin::Title-->
 									<h1 class="text-dark fw-bolder mb-3">Giriş Yap</h1>
 									<!--end::Title-->
+
 								
 								</div>
 								
 								<!--end::Separator-->
+
 								<!--begin::Input group=-->
 								<div class="fv-row mb-8">
 									<!--begin::Email-->
@@ -89,7 +91,10 @@
 								<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
 									<div></div>
 									<!--begin::Link-->
+
 									<a href="../../demo3/dist/authentication/layouts/overlay/reset-password.html" class="link-primary">Şifrenizi mi Unuttunuz ?</a>
+
+							
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
@@ -107,8 +112,10 @@
 								</div>
 								<!--end::Submit button-->
 								<!--begin::Sign up-->
+
 								<div class="text-gray-500 text-center fw-semibold fs-6">Üye Değil misiniz?
 								<a href="../../demo3/dist/authentication/layouts/overlay/sign-up.html" class="link-primary">Üye ol</a></div>
+
 								<!--end::Sign up-->
 							</form>
 							<!--end::Form-->
