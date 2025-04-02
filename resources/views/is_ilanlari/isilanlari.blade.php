@@ -1,4 +1,4 @@
-@extends('layouts.panel_layout',['pageName' => 'Dashboard', 'active' => ''])
+@extends('layouts.panel_layout',['pageName' => 'is_ilanlari.isilanlari', 'active' => ''])
 
 @section('style')
 
