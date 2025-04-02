@@ -20,3 +20,5 @@ Route::group(['middleware' => 'admin'], function()
         return view('dashboard');
     })->name('dashboard');
 });
+
+
