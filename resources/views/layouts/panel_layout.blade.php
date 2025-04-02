@@ -363,7 +363,7 @@
 									<!--begin:Menu item İş İlanlari-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="#">
+												<a class="menu-link active" href="https://iskur.test/isilanlari">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -389,7 +389,7 @@
 									<!--begin:Menu item işsizlik Ödeneği Başvuru -->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="#">
+												<a class="menu-link active" href="https://iskur.test/issizlik_odenegi">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>

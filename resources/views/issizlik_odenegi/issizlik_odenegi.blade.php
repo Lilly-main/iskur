@@ -1,4 +1,4 @@
-@extends('layouts.panel_layout',['pageName' => 'Dashboard', 'active' => ''])
+@extends('layouts.panel_layout',['pageName' => 'issizlik_odenegi.issizlik_odenegi', 'active' => ''])
 
 
 

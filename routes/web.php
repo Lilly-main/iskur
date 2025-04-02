@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\issizlikOdenegi;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,8 +22,10 @@ Route::group(['middleware' => 'admin'], function()
     })->name('dashboard');
 });
 
+Route::get('/isilanlari', function () {
+    return view('is_ilanlari.isilanlari');
+});
 
-
-Route::get('/issizlik-odenegi', function () {
+Route::get('/issizlik_odenegi', function () {
     return view('issizlik_odenegi.issizlik_odenegi');
 });
