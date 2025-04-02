@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Controllers\issizlikOdenegi;
 
 
 class issizlikOdenegi extends Controller

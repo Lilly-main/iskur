@@ -150,17 +150,12 @@
 														</div>
 														</div>
 														
-														
-														<!--begin::Label-->
-														
-															<label class="col-lg-4 col-form-label fw-semibold fs-6">Yukarıdaki metni okudum kabul ve/veya taahhüt ederim</label>
 													
-														<!--end::Label-->
-
 															<!--begin::Label-->													
 															<div class="col-lg-8 d-flex align-items-center">
 																<div class="form-check form-check-solid form-switch form-check-custom fv-row">
 																<input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" checked="checked" />
+																<label class="col-form-label fw-semibold fs-6">		Yukarıdaki metni okudum kabul ve/veya taahhüt ederim</label>
 																<label class="form-check-label" for="allowmarketing"></label>
 															</div>
 														
@@ -169,7 +164,7 @@
 													
 													<!--end::Card body-->
 													<!--begin::Actions-->
-													<div class="card-footer d-flex justify-content-end py-6 px-9">
+													<div class="card-footer d-flex justify-content-center py-6 px-9">
 														<button type="reset" class="btn btn-light btn-active-light-primary me-2">Discard</button>
 														<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Save Changes</button>
 													</div>
