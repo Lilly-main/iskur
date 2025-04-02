@@ -23,6 +23,8 @@ Route::group(['middleware' => 'admin'], function()
 
 
 
+
 Route::get('/issizlik-odenegi', function () {
     return view('issizlik_odenegi.issizlik_odenegi');
 });
+
