@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\issizlikOdenegi;
+use App\Http\Controllers\issizlik_odenegi\IssizlikOdenegiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +26,9 @@ Route::get('/isilanlari', function () {
     return view('is_ilanlari.isilanlari');
 });
 
-Route::get('/issizlik_odenegi', function () {
-    return view('issizlik_odenegi.issizlik_odenegi');
-});
+Route::get('/issizlik_odenegi', [IssizlikOdenegiController::class, 'show'])->name('issizlik_odenegi');
+Route::post('/issizlik_odenegi', [IssizlikOdenegiController::class, 'show'])->name('issizlik_odenegi');
+Route::get('/issizlik_odenegi/fesih', [IssizlikOdenegiController::class, 'showFesihForm'])->name('issizlik_odenegi.fesih');
+Route::get('/get-districts/{cityId}', [IssizlikOdenegiController::class, 'getDistricts'])->name('get.districts');
+
+
