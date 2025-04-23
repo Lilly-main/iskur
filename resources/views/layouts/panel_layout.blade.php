@@ -347,7 +347,7 @@
 									<!--begin:Menu item İş İlanlari-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="https://iskur.test/isilanlari">
+												<a class="menu-link active" href="#">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -373,7 +373,7 @@
 									<!--begin:Menu item işsizlik Ödeneği Başvuru -->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="https://iskur.test/issizlik_odenegi">
+												<a class="menu-link active" href="http://127.0.0.1:8000/issizlik_odenegi">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
