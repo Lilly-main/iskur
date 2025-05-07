@@ -143,7 +143,7 @@
       												  	<select id="il-dropdown" name="Cities" class="form-select form-select-solid"style="color: blue; background-color: white;">
            													 <option value="">İl Seçiniz</option>
           											 		 @foreach($Cities as $city)
-		  											     		 <option value="{{ $city->id }}">{{ $city->ad }}</option>          										     			 
+		  											     		 <option value="{{ $city->id }}">{{ $city->name }}</option>          										     			 
       											     		 @endforeach
      												   </select>
    													 </div>
@@ -162,9 +162,9 @@
 														<select id="ilce-dropdown" name="district" class="form-select form-select-solid">
 															<option value="">İlçe Seçiniz</option>
 															@foreach($Cities as $city)
-																<optgroup label="{{ $city->ad }}">
+																<optgroup label="{{ $city->name }}">
 																	@foreach($city->districts as $district)
-																		<option value="{{ $district->id }}">{{ $district->ad }}</option>
+																		<option value="{{ $district->id }}">{{ $district->name }}</option>
 																	@endforeach
 																</optgroup>
 															@endforeach
@@ -264,4 +264,32 @@
 							});
 						});
 					</script>
+					<script>
+    					document.addEventListener('DOMContentLoaded', function () {
+      					  const ilDropdown = document.getElementById('il-dropdown');
+      					  const ilceDropdown = document.getElementById('ilce-dropdown');
+
+       					 ilDropdown.addEventListener('change', function () {
+       					    const cityId = this.value;
+
+        					    // İlçe dropdown'ını temizle
+         					  ilceDropdown.innerHTML = '<option value="">İlçe Seçiniz</option>';
+
+          					  if (cityId) {
+             					   // AJAX ile ilçeleri al
+              					  fetch(`/get-districts/${cityId}`)
+           					         .then(response => response.json())
+                					    .then(data => {
+                  					      data.forEach(district => {
+                   					         const option = document.createElement('option');
+                   					         option.value = district.id;
+                   					         option.textContent = district.name;
+                   					         ilceDropdown.appendChild(option);
+                    						    });
+                    					})
+                 					   .catch(error => console.error('Hata:', error));
+            }
+        });
+    });
+</script>
 @endsection

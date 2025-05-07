@@ -37,6 +37,7 @@ class IssizlikOdenegiController extends Controller
 
      // Şehirleri ve ilçeleri al
      $Cities = \App\Models\Cities::with('districts')->get();
+ 
 
     // Kullanıcı ve illeri view'e gönder
     return view('issizlik_odenegi.issizlikOdenegiFesih', compact('user', 'Cities'));
