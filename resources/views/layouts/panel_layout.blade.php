@@ -252,9 +252,8 @@
 											
 											<!--begin:Menu item Kişisel Bilgiler-->
 											<div class="menu-item">
-												
 												<!--begin:Menu link -->
-												<a class="menu-link" href="../../demo3/dist/index.html">
+												<a class="menu-link" href="{{ route('user.personalInfo') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -264,23 +263,23 @@
 											</div>
 											<!--end:Menu item Kişisel Bilgiler-->
 
-											<!--begin:Menu item-->
+											<!--begin:Menu item İletişim Bilgileri-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="../../demo3/dist/dashboards/ecommerce.html">
+												<a class="menu-link" href="{{ route('user.contactInfo') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">İletişi Bilgileri</span>
+													<span class="menu-title">İletişim Bilgileri</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
-											<!--end:Menu item-->
+											<!--end:Menu item İletişim Bilgileri-->
 
-											<!--begin:Menu item-->
+											<!--begin:Menu item Öğrenim Bilgileri-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="../../demo3/dist/dashboards/projects.html">
+												<a class="menu-link" href="{{ route('user.educationInfo') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -288,20 +287,22 @@
 												</a>
 												<!--end:Menu link-->
 											</div>
-											<!--end:Menu item-->
+											<!--end:Menu item Öğrenim Bilgileri-->
 
-											<!--begin:Menu item-->
+											
+
+											<!--begin:Menu item Meslek Bilgileri-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="../../demo3/dist/dashboards/online-courses.html">
+												<a class="menu-link" href="{{ route('professions.index') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Meslek Bigileri</span>
+													<span class="menu-title">Meslek Bilgileri</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
-											<!--end:Menu item-->
+											<!--end:Menu item Meslek Bilgileri-->
 
 											<!--begin:Menu item Belgeler-->
 											<div class="menu-item">
@@ -327,7 +328,7 @@
 												</a>
 												<!--end:Menu link -->
 											</div>
-											<!--end:Menu item İşkur CV -->
+											<!--end:Menu item İşkur CV -->										
 
 											<div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse"></div>
 
@@ -347,7 +348,7 @@
 									<!--begin:Menu item İş İlanlari-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="#">
+												<a class="menu-link active" href="{{ route('isilanlari') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -373,7 +374,7 @@
 									<!--begin:Menu item işsizlik Ödeneği Başvuru -->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="http://127.0.0.1:8000/issizlik_odenegi">
+												<a class="menu-link active" href="{{ route('issizlik_odenegi') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
