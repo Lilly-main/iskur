@@ -294,7 +294,7 @@
 											<!--begin:Menu item Meslek Bilgileri-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="{{ route('professions.index') }}">
+												<a class="menu-link" href="{{ route('profile.profession') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -307,10 +307,11 @@
 											<!--begin:Menu item Belgeler-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="../../demo3/dist/dashboards/marketing.html">
+												<a class="menu-link" href="{{ route('user.documents') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
+													
 													<span class="menu-title">Belgeler</span>
 												</a>
 												<!--end:Menu link -->

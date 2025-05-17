@@ -47,4 +47,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function professions()
+    {
+        return $this->belongsToMany(Profession::class, 'user_professions')
+                    ->withPivot('start_date', 'end_date', 'name')
+                    ->withTimestamps();
+    }
 }
