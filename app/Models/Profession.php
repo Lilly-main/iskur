@@ -6,5 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profession extends Model
 {
-    protected $fillable = ['name'];
+    protected $guarded = [];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_professions')
+                    ->withPivot('start_date', 'end_date', 'name')
+                    ->withTimestamps();
+    }
 }
