@@ -6,7 +6,7 @@
     <div id="kt_header" class="header">
         <div class="container d-flex flex-stack flex-wrap gap-2" id="kt_header_container">
             <div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-lg-2 pb-5 pb-lg-0">
-                <h1 class="d-flex flex-column text-dark fw-bold my-0 fs-1">Öğrenim Bilgileri</h1>
+                <h1 class="d-flex flex-column text-dark fw-bold my-0 fs-1">Meslek Bilgileri</h1>
             </div>
         </div>
     </div>
@@ -36,6 +36,15 @@
         <h2>Eklenen Meslekler</h2>
         @if(session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    fetch("{{ route('dashboard.jobListingsAjax') }}")
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('job-listings').innerHTML = data.html;
+                        });
+                });
+            </script>
         @endif
         @if(session('error'))
             <div class="alert alert-danger">{{ session('error') }}</div>

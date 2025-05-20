@@ -36,13 +36,17 @@
 								<div class="d-flex align-items-center">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-circle symbol-40px">
-										<img src="assets/media/avatars/person-dummy.jpg" alt="photo" />
+										<img src="{{ Auth::user() && Auth::user()->profile_photo ? asset('storage/' . Auth::user()->profile_photo) : asset('assets/media/avatars/person-dummy.jpg') }}" alt="photo" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::User info-->
 									<div class="ms-2">
-										<a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bold lh-1">Nülüfer Akbulut</a>
-										<span class="text-muted fw-semibold d-block fs-7 lh-1">Bilgisayar Mühendisliği</span>
+										<a href="{{ route('dashboard') }}" class="text-gray-800 text-hover-primary fs-6 fw-bold lh-1">
+											{{ Auth::user()->name ?? 'Kullanıcı' }}
+										</a>
+										<span class="text-muted fw-semibold d-block fs-7 lh-1">
+											{{ Auth::user()->professions->first()->name ?? 'Meslek Bilgisi Yok' }}
+										</span>
 									</div>
 									<!--end::User info-->
 								</div>
@@ -63,13 +67,7 @@
 													<img alt="Logo" src="assets/media/avatars/300-1.jpg" />
 												</div>
 												<!--end::Avatar-->
-												<!--begin::Username-->
-												<div class="d-flex flex-column">
-													<div class="fw-bold d-flex align-items-center fs-5">Max Smith
-													<span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span></div>
-													<a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
-												</div>
-												<!--end::Username-->
+												
 											</div>
 										</div>
 										<!--end::Menu item-->
@@ -362,11 +360,11 @@
 									<!--begin:Menu item İş Başvurularim-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="#">
+												<a class="menu-link @if(Route::currentRouteName() == 'is_basvurularim') active @endif" href="{{ route('is_basvurularim') }}">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">İş Başvuruları</span>
+													<span class="menu-title">İş Başvurularım</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -395,6 +393,8 @@
 			<!--end::Aside-->
 					
 			@yield('content')
+
+			@yield('footer')
 
 			<!--begin::Footer-->
 				<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
@@ -459,6 +459,10 @@
 	<!--end::Javascript--
    
 	@yield('scripts')
+
+	
+
+	@yield('footer')
 
 </body>
 </html>

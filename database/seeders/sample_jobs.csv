@@ -1,0 +1,101 @@
+id,ilan_basligi,sirket_adi,sehir,meslek,maas_araligi,calisma_sekli,baslangic_tarihi,is_detay,cinsiyet,yas_min,yas_max
+1,Yazılım Geliştirici,ABC Teknoloji,İstanbul,Yazılım Mühendisi,50000-100000,Özel,2025-05-20,Web uygulamaları geliştirme,Farketmez,22,35
+2,Satış Temsilcisi,XYZ Pazarlama,Ankara,Satış Temsilcisi,25000-50000,Özel,2025-05-22,Saha satış operasyonları,Erkek,20,35
+3,İnsan Kaynakları Uzmanı,HR Danışmanlık,İzmir,İK Uzmanı,50000-100000,Özel,2025-05-25,Personel süreç yönetimi,Kadın,25,40
+4,Elektrik Mühendisi,Elektronet,Bursa,Elektrik Mühendisi,100000+,Kamu,2025-06-01,Proje yönetimi,Farketmez,28,45
+5,Öğretmen,Özel Kolej,Antalya,Matematik Öğretmeni,25000-50000,Özel,2025-06-10,Lise matematik dersleri,Kadın,24,40
+6,Depo Sorumlusu,DepoPlus,Kocaeli,Depo Sorumlusu,25000-50000,Özel,2025-05-30,Stok takibi ve yönetimi,Erkek,22,38
+7,Çağrı Merkezi Elemanı,TeleCall,İstanbul,Çağrı Merkezi Elemanı,25000-50000,Özel,2025-05-21,Müşteri destek hizmetleri,Farketmez,18,30
+8,Proje Yöneticisi,Projex,Ankara,Proje Yöneticisi,100000+,Özel,2025-06-05,Proje planlama ve raporlama,Farketmez,30,50
+9,Temizlik Görevlisi,TemizOfis,İzmir,Temizlik Görevlisi,25000-50000,Özel,2025-05-23,Ofis temizliği,Farketmez,20,45
+10,Şoför,Taşıma A.Ş.,Bursa,Şoför,25000-50000,Özel,2025-05-28,Şehir içi taşımacılık,Erkek,25,50
+11,Garson,Lezzet Lokantası,Antalya,Garson,25000-50000,Özel,2025-05-27,Restoran servis hizmeti,Farketmez,18,35
+12,Kasiyer,Marketim,İstanbul,Kasiyer,25000-50000,Özel,2025-05-29,Kasa işlemleri,Farketmez,18,30
+13,İnşaat Mühendisi,İnşaatPro,Ankara,İnşaat Mühendisi,100000+,Kamu,2025-06-15,Şantiye yönetimi,Erkek,28,45
+14,Avukat,Hukuk Bürosu,İzmir,Avukat,100000+,Özel,2025-06-20,Hukuki danışmanlık,Farketmez,27,50
+15,Resepsiyonist,HotelSun,Antalya,Resepsiyonist,25000-50000,Özel,2025-05-26,Otel karşılama hizmeti,Kadın,20,35
+16,Satın Alma Uzmanı,AlımSatım Ltd.,Bursa,Satın Alma Uzmanı,50000-100000,Özel,2025-06-02,Tedarikçi ilişkileri,Farketmez,25,40
+17,İş Analisti,AnalizSoft,İstanbul,İş Analisti,50000-100000,Özel,2025-06-08,İş süreç analizi,Farketmez,24,38
+18,Web Tasarımcısı,WebArt,Ankara,Web Tasarımcısı,50000-100000,Özel,2025-06-12,Web arayüz tasarımı,Farketmez,22,35
+19,Ofis Asistanı,OfisDestek,İzmir,Ofis Asistanı,25000-50000,Özel,2025-05-24,Ofis içi destek hizmetleri,Kadın,20,32
+20,İş Güvenliği Uzmanı,İSG Danışmanlık,Bursa,İş Güvenliği Uzmanı,50000-100000,Özel,2025-06-03,İSG eğitimleri,Farketmez,25,45
+21,Veri Analisti,DataMind,İstanbul,Veri Analisti,50000-100000,Özel,2025-06-07,Veri analizi ve raporlama,Farketmez,23,36
+22,Satış Müdürü,SatışMax,Ankara,Satış Müdürü,100000+,Özel,2025-06-11,Satış ekibi yönetimi,Erkek,30,50
+23,İç Mimar,DesignHome,İzmir,İç Mimar,50000-100000,Özel,2025-06-14,İç mekan tasarımı,Kadın,25,40
+24,İşletme Müdürü,İşletmePlus,Bursa,İşletme Müdürü,100000+,Özel,2025-06-18,İşletme yönetimi,Farketmez,32,55
+25,Çocuk Gelişimi Uzmanı,ÇocukEvi,Antalya,Çocuk Gelişimi Uzmanı,50000-100000,Özel,2025-06-09,Çocuk gelişimi danışmanlığı,Kadın,24,38
+26,Network Uzmanı,NetTek,İstanbul,Network Uzmanı,50000-100000,Özel,2025-06-13,Ağ yönetimi,Farketmez,23,40
+27,Kimya Mühendisi,KimyaLab,Ankara,Kimya Mühendisi,100000+,Kamu,2025-06-16,Laboratuvar yönetimi,Farketmez,27,45
+28,Psikolog,Danışmanlık Merkezi,İzmir,Psikolog,50000-100000,Özel,2025-06-19,Bireysel danışmanlık,Kadın,25,40
+29,İş Makinesi Operatörü,İşMakina,Bursa,İş Makinesi Operatörü,50000-100000,Özel,2025-06-21,Şantiye makine kullanımı,Erkek,22,45
+30,Kuaför,Kuaförüm,Antalya,Kuaför,25000-50000,Özel,2025-05-31,Saç kesim ve bakım,Kadın,20,35
+31,Fotoğrafçı,FotoArt,İstanbul,Fotoğrafçı,25000-50000,Özel,2025-06-04,Stüdyo fotoğrafçılığı,Farketmez,20,40
+32,Çevirmen,ÇeviriOfisi,Ankara,Çevirmen,50000-100000,Özel,2025-06-17,Yazılı ve sözlü çeviri,Farketmez,22,40
+33,Danışma Görevlisi,Danışma Ltd.,İzmir,Danışma Görevlisi,25000-50000,Özel,2025-05-25,Ofis danışma hizmeti,Farketmez,20,35
+34,İşletme Elemanı,İşletmeDestek,Bursa,İşletme Elemanı,25000-50000,Özel,2025-05-28,İşletme destek işleri,Farketmez,18,30
+35,Ar-Ge Mühendisi,ArGeTek,Antalya,Ar-Ge Mühendisi,100000+,Özel,2025-06-22,Ar-Ge projeleri,Farketmez,25,40
+36,Satış Destek Uzmanı,SatışDestek,İstanbul,Satış Destek Uzmanı,50000-100000,Özel,2025-06-10,Satış sonrası destek,Farketmez,22,35
+37,İşletme Asistanı,OfisYardım,Ankara,İşletme Asistanı,25000-50000,Özel,2025-05-27,Ofis asistanlığı,Kadın,20,32
+38,İnşaat Teknikeri,İnşaatPro,İzmir,İnşaat Teknikeri,50000-100000,Özel,2025-06-15,Şantiye teknik işleri,Erkek,22,38
+39,Satış Danışmanı,SatışOfisi,Bursa,Satış Danışmanı,25000-50000,Özel,2025-05-30,Mağaza satış danışmanlığı,Farketmez,18,30
+40,İş Sağlığı Hemşiresi,SağlıkMerkezi,Antalya,İş Sağlığı Hemşiresi,50000-100000,Özel,2025-06-12,İşyeri sağlık hizmetleri,Kadın,23,40
+41,Veri Giriş Elemanı,DataGiriş,İstanbul,Veri Giriş Elemanı,25000-50000,Özel,2025-05-26,Veri giriş işlemleri,Farketmez,18,30
+42,İşletme Yöneticisi,İşletmeMax,Ankara,İşletme Yöneticisi,100000+,Özel,2025-06-18,İşletme yönetimi,Farketmez,30,55
+43,Mimar,Mimarlık Ofisi,İzmir,Mimar,100000+,Özel,2025-06-20,Mimari proje çizimi,Farketmez,27,45
+44,Satış Elemanı,Marketim,Bursa,Satış Elemanı,25000-50000,Özel,2025-05-29,Market satış işlemleri,Farketmez,18,30
+45,İşletme Müdür Yardımcısı,İşletmePlus,Antalya,İşletme Müdür Yardımcısı,50000-100000,Özel,2025-06-11,İşletme yönetimi desteği,Farketmez,25,40
+46,İş Sağlığı ve Güvenliği Uzmanı,İSG Danışmanlık,İstanbul,İSG Uzmanı,50000-100000,Özel,2025-06-14,İSG eğitimleri,Farketmez,25,45
+47,Satış Temsilcisi,SatışMax,Ankara,Satış Temsilcisi,25000-50000,Özel,2025-05-22,Saha satış operasyonları,Erkek,20,35
+48,İşletme Personeli,İşletmeDestek,İzmir,İşletme Personeli,25000-50000,Özel,2025-05-24,Ofis içi destek hizmetleri,Farketmez,20,32
+49,İnşaat Mühendisi,İnşaatPro,Bursa,İnşaat Mühendisi,100000+,Kamu,2025-06-15,Şantiye yönetimi,Erkek,28,45
+50,Avukat,Hukuk Bürosu,Antalya,Avukat,100000+,Özel,2025-06-20,Hukuki danışmanlık,Farketmez,27,50
+51,Resepsiyonist,HotelSun,İstanbul,Resepsiyonist,25000-50000,Özel,2025-05-26,Otel karşılama hizmeti,Kadın,20,35
+52,Satın Alma Uzmanı,AlımSatım Ltd.,Ankara,Satın Alma Uzmanı,50000-100000,Özel,2025-06-02,Tedarikçi ilişkileri,Farketmez,25,40
+53,İş Analisti,AnalizSoft,İzmir,İş Analisti,50000-100000,Özel,2025-06-08,İş süreç analizi,Farketmez,24,38
+54,Web Tasarımcısı,WebArt,Bursa,Web Tasarımcısı,50000-100000,Özel,2025-06-12,Web arayüz tasarımı,Farketmez,22,35
+55,Ofis Asistanı,OfisDestek,Antalya,Ofis Asistanı,25000-50000,Özel,2025-05-24,Ofis içi destek hizmetleri,Kadın,20,32
+56,İş Güvenliği Uzmanı,İSG Danışmanlık,İstanbul,İş Güvenliği Uzmanı,50000-100000,Özel,2025-06-03,İSG eğitimleri,Farketmez,25,45
+57,Veri Analisti,DataMind,Ankara,Veri Analisti,50000-100000,Özel,2025-06-07,Veri analizi ve raporlama,Farketmez,23,36
+58,Satış Müdürü,SatışMax,İzmir,Satış Müdürü,100000+,Özel,2025-06-11,Satış ekibi yönetimi,Erkek,30,50
+59,İç Mimar,DesignHome,Bursa,İç Mimar,50000-100000,Özel,2025-06-14,İç mekan tasarımı,Kadın,25,40
+60,İşletme Müdürü,İşletmePlus,Antalya,İşletme Müdürü,100000+,Özel,2025-06-18,İşletme yönetimi,Farketmez,32,55
+61,Çocuk Gelişimi Uzmanı,ÇocukEvi,İstanbul,Çocuk Gelişimi Uzmanı,50000-100000,Özel,2025-06-09,Çocuk gelişimi danışmanlığı,Kadın,24,38
+62,Network Uzmanı,NetTek,Ankara,Network Uzmanı,50000-100000,Özel,2025-06-13,Ağ yönetimi,Farketmez,23,40
+63,Kimya Mühendisi,KimyaLab,İzmir,Kimya Mühendisi,100000+,Kamu,2025-06-16,Laboratuvar yönetimi,Farketmez,27,45
+64,Psikolog,Danışmanlık Merkezi,Bursa,Psikolog,50000-100000,Özel,2025-06-19,Bireysel danışmanlık,Kadın,25,40
+65,İş Makinesi Operatörü,İşMakina,Antalya,İş Makinesi Operatörü,50000-100000,Özel,2025-06-21,Şantiye makine kullanımı,Erkek,22,45
+66,Kuaför,Kuaförüm,İstanbul,Kuaför,25000-50000,Özel,2025-05-31,Saç kesim ve bakım,Kadın,20,35
+67,Fotoğrafçı,FotoArt,Ankara,Fotoğrafçı,25000-50000,Özel,2025-06-04,Stüdyo fotoğrafçılığı,Farketmez,20,40
+68,Çevirmen,ÇeviriOfisi,İzmir,Çevirmen,50000-100000,Özel,2025-06-17,Yazılı ve sözlü çeviri,Farketmez,22,40
+69,Danışma Görevlisi,Danışma Ltd.,Bursa,Danışma Görevlisi,25000-50000,Özel,2025-05-25,Ofis danışma hizmeti,Farketmez,20,35
+70,İşletme Elemanı,İşletmeDestek,Antalya,İşletme Elemanı,25000-50000,Özel,2025-05-28,İşletme destek işleri,Farketmez,18,30
+71,Ar-Ge Mühendisi,ArGeTek,İstanbul,Ar-Ge Mühendisi,100000+,Özel,2025-06-22,Ar-Ge projeleri,Farketmez,25,40
+72,Satış Destek Uzmanı,SatışDestek,Ankara,Satış Destek Uzmanı,50000-100000,Özel,2025-06-10,Satış sonrası destek,Farketmez,22,35
+73,İşletme Asistanı,OfisYardım,İzmir,İşletme Asistanı,25000-50000,Özel,2025-05-27,Ofis asistanlığı,Kadın,20,32
+74,İnşaat Teknikeri,İnşaatPro,Bursa,İnşaat Teknikeri,50000-100000,Özel,2025-06-15,Şantiye teknik işleri,Erkek,22,38
+75,Satış Danışmanı,SatışOfisi,Antalya,Satış Danışmanı,25000-50000,Özel,2025-05-30,Mağaza satış danışmanlığı,Farketmez,18,30
+76,İş Sağlığı Hemşiresi,SağlıkMerkezi,İstanbul,İş Sağlığı Hemşiresi,50000-100000,Özel,2025-06-12,İşyeri sağlık hizmetleri,Kadın,23,40
+77,Veri Giriş Elemanı,DataGiriş,Ankara,Veri Giriş Elemanı,25000-50000,Özel,2025-05-26,Veri giriş işlemleri,Farketmez,18,30
+78,İşletme Yöneticisi,İşletmeMax,İzmir,İşletme Yöneticisi,100000+,Özel,2025-06-18,İşletme yönetimi,Farketmez,30,55
+79,Mimar,Mimarlık Ofisi,Bursa,Mimar,100000+,Özel,2025-06-20,Mimari proje çizimi,Farketmez,27,45
+80,Satış Elemanı,Marketim,Antalya,Satış Elemanı,25000-50000,Özel,2025-05-29,Market satış işlemleri,Farketmez,18,30
+81,İşletme Müdür Yardımcısı,İşletmePlus,İstanbul,İşletme Müdür Yardımcısı,50000-100000,Özel,2025-06-11,İşletme yönetimi desteği,Farketmez,25,40
+82,İş Sağlığı ve Güvenliği Uzmanı,İSG Danışmanlık,Ankara,İSG Uzmanı,50000-100000,Özel,2025-06-14,İSG eğitimleri,Farketmez,25,45
+83,Satış Temsilcisi,SatışMax,İzmir,Satış Temsilcisi,25000-50000,Özel,2025-05-22,Saha satış operasyonları,Erkek,20,35
+84,İşletme Personeli,İşletmeDestek,Bursa,İşletme Personeli,25000-50000,Özel,2025-05-24,Ofis içi destek hizmetleri,Farketmez,20,32
+85,İnşaat Mühendisi,İnşaatPro,Antalya,İnşaat Mühendisi,100000+,Kamu,2025-06-15,Şantiye yönetimi,Erkek,28,45
+86,Avukat,Hukuk Bürosu,İstanbul,Avukat,100000+,Özel,2025-06-20,Hukuki danışmanlık,Farketmez,27,50
+87,Resepsiyonist,HotelSun,Ankara,Resepsiyonist,25000-50000,Özel,2025-05-26,Otel karşılama hizmeti,Kadın,20,35
+88,Satın Alma Uzmanı,AlımSatım Ltd.,İzmir,Satın Alma Uzmanı,50000-100000,Özel,2025-06-02,Tedarikçi ilişkileri,Farketmez,25,40
+89,İş Analisti,AnalizSoft,Bursa,İş Analisti,50000-100000,Özel,2025-06-08,İş süreç analizi,Farketmez,24,38
+90,Web Tasarımcısı,WebArt,Antalya,Web Tasarımcısı,50000-100000,Özel,2025-06-12,Web arayüz tasarımı,Farketmez,22,35
+91,Ofis Asistanı,OfisDestek,İstanbul,Ofis Asistanı,25000-50000,Özel,2025-05-24,Ofis içi destek hizmetleri,Kadın,20,32
+92,İş Güvenliği Uzmanı,İSG Danışmanlık,Ankara,İş Güvenliği Uzmanı,50000-100000,Özel,2025-06-03,İSG eğitimleri,Farketmez,25,45
+93,Veri Analisti,DataMind,İzmir,Veri Analisti,50000-100000,Özel,2025-06-07,Veri analizi ve raporlama,Farketmez,23,36
+94,Satış Müdürü,SatışMax,Bursa,Satış Müdürü,100000+,Özel,2025-06-11,Satış ekibi yönetimi,Erkek,30,50
+95,İç Mimar,DesignHome,Antalya,İç Mimar,50000-100000,Özel,2025-06-14,İç mekan tasarımı,Kadın,25,40
+96,İşletme Müdürü,İşletmePlus,İstanbul,İşletme Müdürü,100000+,Özel,2025-06-18,İşletme yönetimi,Farketmez,32,55
+97,Çocuk Gelişimi Uzmanı,ÇocukEvi,Ankara,Çocuk Gelişimi Uzmanı,50000-100000,Özel,2025-06-09,Çocuk gelişimi danışmanlığı,Kadın,24,38
+98,Network Uzmanı,NetTek,İzmir,Network Uzmanı,50000-100000,Özel,2025-06-13,Ağ yönetimi,Farketmez,23,40
+99,Kimya Mühendisi,KimyaLab,Bursa,Kimya Mühendisi,100000+,Kamu,2025-06-16,Laboratuvar yönetimi,Farketmez,27,45
+100,Psikolog,Danışmanlık Merkezi,Antalya,Psikolog,50000-100000,Özel,2025-06-19,Bireysel danışmanlık,Kadın,25,40

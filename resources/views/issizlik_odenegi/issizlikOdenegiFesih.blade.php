@@ -61,7 +61,8 @@
 										<!--begin::Content-->
 										<div id="kt_account_settings_profile_details" class="collapse show">
 											<!--begin::Form-->
-											<form id="kt_account_profile_details_form" class="form">
+											<form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('issizlik_odenegi.fesih.store') }}">
+												@csrf
 												<!--begin::Card body-->
 												<div class="card-body border-top p-9">
 													<!--begin::Input group-->
@@ -292,4 +293,5 @@
         });
     });
 </script>
+
 @endsection

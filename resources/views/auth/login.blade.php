@@ -114,7 +114,7 @@
 								<!--begin::Sign up-->
 
 								<div class="text-gray-500 text-center fw-semibold fs-6">Üye Değil misiniz?
-								<a href="../../demo3/dist/authentication/layouts/overlay/sign-up.html" class="link-primary">Üye ol</a></div>
+								<a href="{{ route('register') }}" class="link-primary">Üye ol</a></div>
 
 								<!--end::Sign up-->
 							</form>
