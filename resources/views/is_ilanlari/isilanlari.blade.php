@@ -4,10 +4,6 @@
 
 @endsection
 
-@section('script')
-<script></script>
-@endsection
-
 @section('content')
 				<!--begin::Wrapper-->
 				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
@@ -29,10 +25,7 @@
 							</div>
 							<!--end::Page title=-->
 
-							<div class="d-flex align-items-center flex-shrink-0">
-
-
-								
+							<div class="d-flex align-items-center flex-shrink-0">								
 
 							</div>
 							<!--end::Topbar-->
@@ -49,13 +42,8 @@
 
 						
 							<div class="card mb-5 mb-xl-10">
-								<!--
-								<div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
-									<div class="card-title m-0">
-										<h3 class="fw-bold m-0">Profile Details</h3>
-									</div>
-								</div>
-								-->
+								
+								
 								
 								<!--begin::Content-->
 								<div id="kt_account_settings_profile_details" class="collapse show">
@@ -82,11 +70,6 @@
 										<input type="hidden" />
 										<!--end::Hidden input-->										
 									
-																				</div>
-										
-											
-											
-										
 										<!--begin::Actions-->
 											
 											<!--end::Actions-->
@@ -98,168 +81,234 @@
 								<!--end::Search-->
 								
 									<!--begin::Form-->
-									<form id="kt_account_profile_details_form" class="form">
+									<form id="job_search_form" class="form" method="GET" action="{{ route('is_ilanlari.index') }}">
 										<!--begin::Card body-->
 										<div class="card-body border-top p-9">
-											
-											
-											<!--begin::Input group-->
+											<!-- MESLEK (AJAX ile autocomplete) -->
 											<div class="row mb-6">
-												<!--begin::Label-->
-												<label class="col-lg-4 col-form-label fw-semibold fs-6">
-													<span class="required">Ülke</span>
-													
-												</label>
-												<!--end::Label-->
-												<!--begin::Col-->
-												<div class="col-lg-8 fv-row">
-													<select name="country" aria-label="Select a Country" data-control="select2" data-placeholder="Select a country..." class="form-select form-select-solid form-select-lg fw-semibold">
-														
-														<option data-kt-flag="flags/turkey.svg" value="TR">Türkiye</option>							
-														
-													</select>
-												</div>
-												<!--end::Col-->
+											    <label class="col-lg-4 col-form-label fw-semibold fs-6">Meslek</label>
+											    <div class="col-lg-8 fv-row position-relative">
+											        <input type="text" name="profession" id="profession" class="form-control" placeholder="Meslek adı girin" autocomplete="off">
+											        <ul id="profession-suggestions" class="list-group position-absolute w-100" style="z-index:1000; display:none;"></ul>
+											    </div>
 											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
+											<script>
+											document.addEventListener('DOMContentLoaded', function () {
+											    const professionInput = document.getElementById('profession');
+											    const suggestionsList = document.getElementById('profession-suggestions');
+											
+											    professionInput.addEventListener('input', function () {
+											        const query = professionInput.value;
+											        if (query.length >= 3) {
+											            fetch(`{{ route('professions.search') }}?q=${query}`)
+											                .then(response => response.json())
+											                .then(data => {
+											                    suggestionsList.innerHTML = '';
+											                    suggestionsList.style.display = 'block';
+											                    data.forEach(profession => {
+											                        const li = document.createElement('li');
+											                        li.textContent = profession.name;
+											                        li.classList.add('list-group-item');
+											                        li.addEventListener('click', function () {
+											                            professionInput.value = profession.name;
+											                            suggestionsList.style.display = 'none';
+											                        });
+											                        suggestionsList.appendChild(li);
+											                    });
+											                    if (data.length === 0) {
+											                        const li = document.createElement('li');
+											                        li.textContent = 'Sonuç bulunamadı';
+											                        li.classList.add('list-group-item');
+											                        suggestionsList.appendChild(li);
+											                    }
+											                });
+											        } else {
+											            suggestionsList.style.display = 'none';
+											        }
+											    });
+											
+											    document.addEventListener('click', function (e) {
+											        if (!professionInput.contains(e.target) && !suggestionsList.contains(e.target)) {
+											            suggestionsList.style.display = 'none';
+											        }
+											    });
+											});
+											</script>
+											<!-- İL (AJAX ile autocomplete) -->
 											<div class="row mb-6">
-												<!--begin::Label-->
-												<label class="col-lg-4 col-form-label required fw-semibold fs-6">Meslek</label>
-												<!--end::Label-->
-												<!--begin::Col-->
-												<div class="col-lg-8 fv-row">
-													<!--begin::Input-->
-													<select name="language" aria-label="Bir Meslek Seçiniz" data-control="select2" data-placeholder="Bir Meslek Seçiniz..." class="form-select form-select-solid form-select-lg">
-														<option value="">Bir Meslek Seçiniz...</option>										
-													</select>					
-
-													<!--end::Input-->
-													
-												</div>
-												<!--end::Col-->
+											    <label class="col-lg-4 col-form-label fw-semibold fs-6">İl</label>
+											    <div class="col-lg-8 fv-row position-relative">
+											        <input type="text" name="city" id="city" class="form-control" placeholder="İl adı girin" autocomplete="off">
+											        <ul id="city-suggestions" class="list-group position-absolute w-100" style="z-index:1000; display:none;"></ul>
+											    </div>
 											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
+											<script>
+											document.addEventListener('DOMContentLoaded', function () {
+											    const cityInput = document.getElementById('city');
+											    const citySuggestions = document.getElementById('city-suggestions');
+											
+											    cityInput.addEventListener('input', function () {
+											        const query = cityInput.value;
+											        if (query.length >= 2) {
+											            fetch(`{{ url('api/cities/search') }}?q=${query}`)
+											                .then(response => response.json())
+											                .then(data => {
+											                    citySuggestions.innerHTML = '';
+											                    citySuggestions.style.display = 'block';
+											                    data.forEach(city => {
+											                        const li = document.createElement('li');
+											                        li.textContent = city.name;
+											                        li.classList.add('list-group-item');
+											                        li.addEventListener('click', function () {
+											                            cityInput.value = city.name;
+											                            citySuggestions.style.display = 'none';
+											                        });
+											                        citySuggestions.appendChild(li);
+											                    });
+											                    if (data.length === 0) {
+											                        const li = document.createElement('li');
+											                        li.textContent = 'Sonuç bulunamadı';
+											                        li.classList.add('list-group-item');
+											                        citySuggestions.appendChild(li);
+											                    }
+											                });
+											        } else {
+											            citySuggestions.style.display = 'none';
+											        }
+											    });
+											
+											    document.addEventListener('click', function (e) {
+											        if (!cityInput.contains(e.target) && !citySuggestions.contains(e.target)) {
+											            citySuggestions.style.display = 'none';
+											        }
+											    });
+											});
+											</script>
+											<!-- MAAŞ ARALIĞI -->
 											<div class="row mb-6">
-												<!--begin::Label-->
 												<label class="col-lg-4 col-form-label required fw-semibold fs-6">Maaş Aralığı</label>
-												<!--end::Label-->
-												<!--begin::Col-->
 												<div class="col-lg-8 fv-row">
-													<select name="salary_range" aria-label="Maaş Aralığı Seçiniz" data-control="select2" data-placeholder="Maaş Aralığı Seçiniz.." class="form-select form-select-solid form-select-lg">
+													<select name="maas_araligi" aria-label="Maaş Aralığı Seçiniz" data-control="select2" data-placeholder="Maaş Aralığı Seçiniz.." class="form-select form-select-solid form-select-lg">
 														<option value="">Maaş Aralığı Seçiniz..</option>
-														<option value="low">25000-50000 TL</option>
-														<option value="medium">50000-100000 TL</option>
-														<option value="high">100000+ TL</option>
+														<option value="25000-50000">25000-50000 TL</option>
+														<option value="50000-100000">50000-100000 TL</option>
+														<option value="100000+">100000+ TL</option>
 													</select>
 												</div>
-												<!--end::Col-->
 											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
+											<!-- BAŞLANGIÇ TARİHİ -->
 											<div class="row mb-6">
-												<!--begin::Label-->
 												<label class="col-lg-4 col-form-label required fw-semibold fs-6">İş İlanı Başlangıç Tarihi</label>
-												<!--end::Label-->
-												<!--begin::Col-->
 												<div class="col-lg-8 fv-row">
-													<input type="date" name="start_date" class="form-control form-control-lg form-control-solid" placeholder="İş İlanı Başlangıç Tarihi" value="" />
+													<input type="date" name="baslangic_tarihi" class="form-control form-control-lg form-control-solid" placeholder="İş İlanı Başlangıç Tarihi" />
 												</div>
-												<!--end::Col-->
 											</div>
-											<!--end::Input group-->
-
-											<!-- Boşluk eklemek için bir div -->
-											<div class="mb-6"></div>
-
-											<!--begin::Input group-->
+											<!-- ÇALIŞMA ŞEKLİ -->
 											<div class="row mb-6">
-												<!--begin::Label-->
 												<label class="col-lg-4 col-form-label required fw-semibold fs-6">Çalışma Şekli</label>
-												<!--end::Label-->
-												<!--begin::Col-->
 												<div class="col-lg-8 fv-row">
-													<select name="work_type" aria-label="Çalışma Şekli Seçiniz" data-control="select2" data-placeholder="Çalışma Şekli Seçiniz.." class="form-select form-select-solid form-select-lg">
+													<select name="calisma_sekli" aria-label="Çalışma Şekli Seçiniz" data-control="select2" data-placeholder="Çalışma Şekli Seçiniz.." class="form-select form-select-solid form-select-lg">
 														<option value="">Çalışma Şekli Seçiniz..</option>
-														<option value="remote">Uzaktan</option>
-														<option value="onsite">Ofis</option>
-														<option value="hybrid">Hibrit</option>
+														<option value="Özel">Özel</option>
+														<option value="Kamu">Kamu</option>
 													</select>
 												</div>
-												<!--end::Col-->
 											</div>
-											<!--end::Input group-->
-											
-												<!--begin::Input group-->
-												<div class="row mb-6">
-													<!--begin::Label-->
-													<label class="col-lg-4 col-form-label required fw-semibold fs-6">İş Detay</label>
-													<!--end::Label-->
-													<!--begin::Col-->
-													<div class="col-lg-8 fv-row">
-														<input type="text" name="job_detail" class="form-control form-control-lg form-control-solid" placeholder="İş Detay" value="" />
-													</div>
-													<!--end::Col-->
-												</div>
-												<!--end::Input group-->
-												<!--begin::Input group-->
-												<div class="row mb-6">
-													<!--begin::Label-->
-													<label class="col-lg-4 col-form-label required fw-semibold fs-6">Cinsiyet</label>
-													<!--end::Label-->
-													<!--begin::Col-->
-													<div class="col-lg-8 fv-row">
-														<div class="d-flex align-items-center mt-3">
-															<label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-																<input class="form-check-input" name="gender[]" type="checkbox" value="female" />
-																<span class="fw-semibold ps-2 fs-6">Kadın</span>
-															</label>
-															<label class="form-check form-check-custom form-check-inline form-check-solid me-5">
-																<input class="form-check-input" name="gender[]" type="checkbox" value="male" />
-																<span class="fw-semibold ps-2 fs-6">Erkek</span>
-															</label>
-															<label class="form-check form-check-custom form-check-inline form-check-solid">
-																<input class="form-check-input" name="gender[]" type="checkbox" value="any" />
-																<span class="fw-semibold ps-2 fs-6">Farketmez</span>
-															</label>
-														</div>
+											<!-- CİNSİYET -->
+											<div class="row mb-6">
+												<label class="col-lg-4 col-form-label required fw-semibold fs-6">Cinsiyet</label>
+												<div class="col-lg-8 fv-row">
+													<div class="d-flex align-items-center mt-3">
+														<label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+															<input class="form-check-input" name="cinsiyet[]" type="checkbox" value="Kadın" />
+															<span class="fw-semibold ps-2 fs-6">Kadın</span>
+														</label>
+														<label class="form-check form-check-custom form-check-inline form-check-solid me-5">
+															<input class="form-check-input" name="cinsiyet[]" type="checkbox" value="Erkek" />
+															<span class="fw-semibold ps-2 fs-6">Erkek</span>
+														</label>
+														<label class="form-check form-check-custom form-check-inline form-check-solid">
+															<input class="form-check-input" name="cinsiyet[]" type="checkbox" value="Farketmez" />
+															<span class="fw-semibold ps-2 fs-6">Farketmez</span>
+														</label>
 													</div>
 												</div>
-												<!--end::Input group-->
-
-												<!--begin::Input group-->
-												<div class="row mb-6">
-													<!--begin::Label-->
-													<label class="col-lg-4 col-form-label fw-semibold fs-6">Yaş Aralığı</label>
-													<!--end::Label-->
-													<!--begin::Col-->
-													<div class="col-lg-4 fv-row">
-														<input type="number" name="age_min" class="form-control form-control-lg form-control-solid" placeholder="Min Yaş" min="0" />
-													</div>
-													<div class="col-lg-4 fv-row">
-														<input type="number" name="age_max" class="form-control form-control-lg form-control-solid" placeholder="Max Yaş" min="0" />
-													</div>
-													<!--end::Col-->
+											</div>
+											<!-- YAŞ ARALIĞI -->
+											<div class="row mb-6">
+												<label class="col-lg-4 col-form-label fw-semibold fs-6">Yaş Aralığı</label>
+												<div class="col-lg-4 fv-row">
+													<input type="number" name="yas_min" class="form-control form-control-lg form-control-solid" placeholder="Min Yaş" min="0" />
 												</div>
-												<!--end::Input group-->
-
-											
+												<div class="col-lg-4 fv-row">
+													<input type="number" name="yas_max" class="form-control form-control-lg form-control-solid" placeholder="Max Yaş" min="0" />
+												</div>
+											</div>
 										</div>
-										<!--end::Card body-->
-										<!--begin::Actions-->
-										<div class="card-footer d-flex justify-content-end py-6 px-9">								
-											<button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">Ara</button>
+										<div class="card-footer d-flex justify-content-end py-6 px-9">
+											<button type="submit" class="btn btn-primary">Ara</button>
 										</div>
-										<!--end::Actions-->
 									</form>
 									<!--end::Form-->
 								</div>
 								<!--end::Content-->
 
 							</div>
-						
-
+							
+							@if(isset($ilanlar) && $ilanlar->count())
+    <div class="mt-8">
+        <h3 class="fw-bold mb-4">İş İlanları Sonuçları</h3>
+        <div class="row g-4">
+            @foreach($ilanlar as $ilan)
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card shadow-sm border-primary mb-4 h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">{{ $ilan->ilan_basligi }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Şirket:</strong> {{ $ilan->sirket_adi }}</p>
+                            <p><strong>Şehir:</strong> {{ $ilan->sehir }}</p>
+                            <p><strong>Meslek:</strong> {{ $ilan->meslek }}</p>
+                            <p><strong>Maaş:</strong> {{ $ilan->maas_araligi }}</p>
+                            <p><strong>Çalışma Şekli:</strong> {{ $ilan->calisma_sekli }}</p>
+                            <p><strong>Başlangıç Tarihi:</strong> {{ $ilan->baslangic_tarihi }}</p>
+                            <p><strong>Cinsiyet:</strong> {{ $ilan->cinsiyet }}</p>
+                            <p><strong>Yaş:</strong> {{ $ilan->yas_min }} - {{ $ilan->yas_max }}</p>
+                        </div>
+                        <div class="card-footer bg-light d-flex justify-content-end">
+                            @auth
+                                <form action="{{ route('job.apply', $ilan->id) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">Başvur</button>
+                                </form>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-outline-primary">Giriş Yap & Başvur</a>
+                            @endauth
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="mt-4">
+            {{ $ilanlar->onEachSide(1)->links('vendor.pagination.custom') }}
+        </div>
+    </div>
+							@elseif(request()->all())
+								<div class="alert alert-warning mt-8">
+									@php
+										$params = collect(request()->except(['page','_token']))->filter();
+									@endphp
+									@if($params->count())
+										<strong>Arama kriterleriniz:</strong>
+										<ul>
+											@foreach($params as $key => $value)
+												<li><b>{{ ucfirst($key) }}:</b> {{ is_array($value) ? implode(', ', $value) : $value }}</li>
+											@endforeach
+										</ul>
+									@endif
+									<span>Uygun iş ilanı bulunamadı.</span>
+								</div>
+							@endif
 							
 						</div>
 						<!--end::Container-->

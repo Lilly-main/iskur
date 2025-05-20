@@ -86,19 +86,12 @@ class ProfessionController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->input('q');
-
-        // En az 3 harf kontrolü
-        if (strlen($query) < 3) {
-            return response()->json([]);
-        }
-
-        // Meslekleri filtrele
-        $professions = Profession::where('name', 'LIKE', "%$query%")
-            ->take(10) // Maksimum 10 sonuç döndür
+        $q = $request->input('q');
+        $results = Profession::where('name', 'like', "%$q%")
+            ->select('id', 'name')
+            ->limit(20)
             ->get();
-
-        return response()->json($professions);
+        return response()->json($results);
     }
 
     public function store(Request $request)

@@ -148,7 +148,7 @@
 								<!--end::Submit button-->
 								<!--begin::Sign up-->
 								<div class="text-gray-500 text-center fw-semibold fs-6">Zaten Üye misiniz?
-								<a href="../../demo3/dist/authentication/layouts/overlay/sign-in.html" class="link-primary fw-semibold">Giriş Yap</a></div>
+								<a href="{{ route('login') }}" class="link-primary fw-semibold">Giriş Yap</a></div>
 								<!--end::Sign up-->
 							</form>
 							<!--end::Form-->

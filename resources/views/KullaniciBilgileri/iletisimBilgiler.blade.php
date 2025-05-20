@@ -48,4 +48,5 @@
         </div>
     </div>
 </div>
+@yield('footer')
 @endsection

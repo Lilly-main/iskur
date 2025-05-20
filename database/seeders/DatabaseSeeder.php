@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'id_number' => 12345678901, // Zorunlu alan eklendi
         ]);
+        $this->call(JobPostingSeeder::class);
+        $this->call(ProfessionSeeder::class);
     }
 }

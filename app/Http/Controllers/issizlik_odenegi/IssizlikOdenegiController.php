@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\issizlik_odenegi\IssizlikOdenegiController;
+use App\Models\UnemploymentApplication;
 
 
 
@@ -43,6 +44,28 @@ class IssizlikOdenegiController extends Controller
     return view('issizlik_odenegi.issizlikOdenegiFesih', compact('user', 'Cities'));
     }
 
+    public function storeFesih(Request $request)
+    {
+        $request->validate([
+            'fullname' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'start_date' => 'required|date',
+            'Cities' => 'required|exists:cities,id',
+            'district' => 'required|exists:districts,id',
+        ]);
+
+        UnemploymentApplication::create([
+            'user_id' => auth()->id(),
+            'fullname' => $request->fullname,
+            'id_number' => $request->phone,
+            'fesih_tarihi' => $request->start_date,
+            'basvuru_tarihi' => now(),
+            'city_id' => $request->Cities,
+            'district_id' => $request->district,
+        ]);
+
+        return redirect()->back()->with('success', 'Başvurunuz başarıyla kaydedildi.');
+    }
     
     
 }
