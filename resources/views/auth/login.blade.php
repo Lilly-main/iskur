@@ -47,7 +47,7 @@
 						<!--end::Title-->
 						<!--begin::Text-->
 						<div class="text-gray-600 fs-base text-center fw-semibold">
-						<a href="#" class="opacity-75-hover text-primary me-1">İŞKUR ANASAYFA</a>
+						<a href="https://www.iskur.gov.tr" class="opacity-75-hover text-primary me-1" target="_blank" rel="noopener">İŞKUR ANASAYFA</a>
 						</div>
 						<!--end::Text-->
 					</div>

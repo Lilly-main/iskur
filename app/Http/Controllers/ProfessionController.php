@@ -2,62 +2,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\ProfessionsImport;
-use PhpOffice\PhpSpreadsheet\IOFactory;
 use App\Models\Profession;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class ProfessionController extends Controller
 {
     public function import()
     {
-        Excel::import(new ProfessionsImport, storage_path('app/meslekler.csv'));
-
-        return response()->json(['message' => 'Meslekler başarıyla eklendi!']);
-    }
-
-    public function importToDatabase()
-    {
-        $filePath = storage_path('app/meslekler.xlsx'); // Excel dosyasının yolu
-
-        // Excel dosyasını yükle
-        $spreadsheet = IOFactory::load($filePath);
-        $sheet = $spreadsheet->getActiveSheet();
-        $rows = $sheet->toArray();
-
-        // Meslekleri veritabanına kaydet
-        foreach ($rows as $row) {
-            if (!empty($row[0])) { // Meslek adı boş değilse
-                Profession::updateOrCreate(['name' => $row[0]]);
-            }
-        }
-
-        return response()->json(['message' => 'Meslekler başarıyla veritabanına aktarıldı!']);
-    }
-
-    public function importFromCsv()
-    {
-        $filePath = storage_path('app/meslekler.xlsx'); // Excel dosyasının yolu
-
-        // Dosyanın varlığını kontrol et
+        $filePath = storage_path('app/meslekler.csv');
         if (!file_exists($filePath)) {
-            return response()->json(['error' => 'Excel dosyası bulunamadı: ' . $filePath], 404);
+            return response()->json(['error' => 'CSV dosyası bulunamadı: ' . $filePath], 404);
         }
-
-        // Excel dosyasını aç ve oku
-        $spreadsheet = IOFactory::load($filePath);
-        $sheet = $spreadsheet->getActiveSheet();
-        $rows = $sheet->toArray();
-
-        foreach ($rows as $row) {
-            if (!empty($row[0])) { // Meslek adı boş değilse
-                Profession::updateOrCreate(['name' => $row[0]]);
+        $rowCount = 0;
+        if (($handle = fopen($filePath, 'r')) !== false) {
+            while (($data = fgetcsv($handle, 1000, ',')) !== false) {
+                if (!empty($data[0])) {
+                    Profession::updateOrCreate(['name' => $data[0]]);
+                    $rowCount++;
+                }
             }
+            fclose($handle);
         }
-
-        return response()->json(['message' => 'Meslekler başarıyla veritabanına aktarıldı!']);
+        return response()->json(['message' => 'Meslekler başarıyla eklendi!', 'count' => $rowCount]);
     }
 
     public function index()

@@ -35,9 +35,9 @@
                         <input type="file" name="profile_image" id="profile_image" class="form-control">
                     </div>
 
-                    <!-- Ad Soyad -->
+                    <!-- Ad -->
                     <div class="mb-3">
-                        <label for="name" class="form-label">Ad Soyad</label>
+                        <label for="name" class="form-label">Ad</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name) }}" required>
                     </div>
                     
@@ -51,7 +51,7 @@
                     <!-- Doğum Tarihi -->
                     <div class="mb-3">
                         <label for="birth_date" class="form-label">Doğum Tarihi</label>
-                        <input type="date" name="birth_date" id="birth_date" class="form-control" value="{{ old('birth_date', $user->birth_date) }}"required>
+                        <input type="date" name="birth_date" id="birth_date" class="form-control" value="{{ old('birth_date', $user->birth_date) }}">
                     </div>
 
                     <!-- Cinsiyet -->
@@ -61,9 +61,7 @@
                             <option value="male" {{ old('gender', $user->gender) == 'male' ? 'selected' : '' }}>Erkek</option>
                             <option value="female" {{ old('gender', $user->gender) == 'female' ? 'selected' : '' }}>Kadın</option>
                             <option value="other" {{ old('gender', $user->gender) == 'other' ? 'selected' : '' }}>Diğer</option>
-                           "required>
                         </select>
-                       
                     </div>
 
                     <!-- Kaydet Butonu -->

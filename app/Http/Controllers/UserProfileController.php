@@ -23,7 +23,6 @@ class UserProfileController extends Controller
         // Form doğrulama
         $request->validate([
             'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
             'id_number' => 'required|string|max:11',
             'birth_date' => 'nullable|date',
             'gender' => 'nullable|string',
@@ -37,10 +36,11 @@ class UserProfileController extends Controller
             }
             $path = $request->file('profile_image')->store('profile_images', 'public');
             $user->profile_image = $path;
+            $user->save();
         }
 
         // Diğer bilgileri güncelleme
-        $user->update($request->only('name', 'surname', 'id_number', 'birth_date', 'gender'));
+        $user->update($request->only('name', 'id_number', 'birth_date', 'gender'));
 
         return redirect()->back()->with('success', 'Kişisel bilgiler başarıyla güncellendi.');
     }
