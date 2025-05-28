@@ -316,18 +316,7 @@
 											</div>
 											<!--end:Menu item Belgeler->
 											
-											<!--begin:Menu item İşkur CV-->
-											<div class="menu-item">
-												<!--begin:Menu link-->
-												<a class="menu-link" href="../../demo3/dist/dashboards/marketing.html">
-													<span class="menu-bullet">
-														<span class="bullet bullet-dot"></span>
-													</span>
-													<span class="menu-title">İşkur CV</span>
-												</a>
-												<!--end:Menu link -->
-											</div>
-											<!--end:Menu item İşkur CV -->										
+																					
 
 											<div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse"></div>
 
@@ -389,12 +378,16 @@
 						</div>
 						<!--end::Aside menu-->
 
-			</div>
+						</div>
+					<!--end::Aside-->
+					</div>
+				<!--end::Aside-->
+				</div>
 			<!--end::Aside-->
 					
 			@yield('content')
 
-			@yield('footer')
+			
 
 			<!--begin::Footer-->
 				<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
@@ -456,7 +449,7 @@
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
-	<!--end::Javascript--
+	<!--end::Javascript-->
    
 	@yield('scripts')
 

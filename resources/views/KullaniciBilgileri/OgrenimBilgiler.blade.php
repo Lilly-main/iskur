@@ -13,7 +13,7 @@
     <div class="container-xxl">
         <div class="card mb-5">
             <div class="card-header">
-                <h3 class="fw-bold">Öğrenim Bilgileri</h3>
+                <h3 class="fw-bold">Öğrenim Bilgilerinizi Giriniz</h3>
             </div>
             <div class="card-body">
                 <!-- Başarı Mesajı -->
@@ -53,9 +53,26 @@
                         <input type="date" name="graduation_date" id="graduation_date" class="form-control" value="{{ old('graduation_date', $user->graduation_date ?? '') }}">
                     </div>
 
-                    <!-- Kaydet Butonu -->
-                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <!-- Kaydet ve Güncelle Butonları -->
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <form action="{{ route('user.updateEducationInfo') }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">Güncelle</button>
+                        </form>
+                    </div>
                 </form>
+
+                <!-- Kayıtlı Öğrenim Bilgileri -->
+                <div class="mt-5">
+                    <h5>Kayıtlı Öğrenim Bilgileriniz</h5>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item"><strong>Eğitim Seviyesi:</strong> {{ $user->education_level ?? '-' }}</li>
+                        <li class="list-group-item"><strong>Okul Adı:</strong> {{ $user->school_name ?? '-' }}</li>
+                        <li class="list-group-item"><strong>Bölüm:</strong> {{ $user->department ?? '-' }}</li>
+                        <li class="list-group-item"><strong>Mezuniyet Tarihi:</strong> {{ $user->graduation_date ?? '-' }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

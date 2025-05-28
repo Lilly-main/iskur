@@ -19,10 +19,18 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'id_number',
         'email',
         'password',
         'phone',    // Telefon Numarası
         'address',  // Adres
+        'profile_image', // Profil resmi
+        'birth_date',
+        'gender',
+        'education_level',
+        'school_name',
+        'department',
+        'graduation_date',
     ];
 
     /**

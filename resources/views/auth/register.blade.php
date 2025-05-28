@@ -46,7 +46,7 @@
 						<!--end::Title-->
 						<!--begin::Text-->
 						<div class="text-gray-600 fs-base text-center fw-semibold">
-						<a href="#" class="opacity-75-hover text-primary me-1">İŞKUR ANASAYFA</a>
+						<a href="https://www.iskur.gov.tr" class="opacity-75-hover text-primary me-1" target="_blank" rel="noopener">İŞKUR ANASAYFA</a>
 						</div>
 						<!--end::Text-->
 					</div>
@@ -128,9 +128,14 @@
 								<div class="fv-row mb-8">
 									<label class="form-check form-check-inline">
 										<input class="form-check-input" type="checkbox" name="toc" value="1" />
-										<a href="#" class="ms-1 link-primary">Üyelik Şartlarını</a></span>
-										<span class="form-check-label fw-semibold text-gray-700 fs-base ms-1">Kabul Ediyorum
+										<a href="#uyelikSartlariAciklama" class="ms-1 link-primary" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="uyelikSartlariAciklama">Üyelik Şartlarını</a>
+										<span class="form-check-label fw-semibold text-gray-700 fs-base ms-1">Kabul Ediyorum</span>
 									</label>
+									<div class="collapse mt-2" id="uyelikSartlariAciklama">
+										<div class="card card-body">
+											İş aramanın ilk adımı kayıttır. Kurum hizmetlerinden yararlanmak isteyen iş arayanların Kurum portalına üye olarak veya şahsen Kurum ünitelerine başvurarak kayıt olmaları zorunludur. Başarılı bir eşleştirme için hem açık iş hem de iş arayan kişi hakkında tam ve doğru bilgilerin bulunması zorunludur. Gerek internet üzerinden gerekse Kurum personeli aracılığı ile kayıt yaptıracak olanların kendileri ile ilgili bilgileri tam ve doğru olarak yansıtmaları uygun işe yerleştirilmelerinde oldukça önemlidir. Bu nedenle, lütfen kişisel, iletişim, eğitim, meslek ve diğer bilgilerinizi tam ve doğru olarak sisteme giriniz. Özgeçmişinizde eğitim ve meslek bilgileri girilmeden kaydınız aktife alınmamaktadır.
+										</div>
+									</div>
 								</div>
 								<!--end::Accept-->
 								<!--begin::Submit button-->

@@ -233,25 +233,31 @@
 											<!--begin::Title-->
 											<h3 class="card-title align-items-start flex-column">
 												<span class="card-label fw-bold text-dark">İŞ İLANLARI</span>
-												<span class="text-gray-400 mt-1 fw-semibold fs-6">Mesleklerinize Uygun İş İlanları</span>
+												<a href="{{ route('is_ilanlari.index') }}" class="btn btn-link ms-auto">Tüm İş İlanları</a>
 											</h3>
 											<!--end::Title-->
+											
 										</div>
 										<!--end::Header-->
 										<!--begin::Card body-->
 										<div class="card-body">
 											@php
 												$userProfessions = auth()->user()->professions()->pluck('professions.id')->toArray();
-												$jobPostings = \App\Models\JobPosting::whereHas('professions', function($q) use ($userProfessions) {
+												// Önce eşleşen ilanlar, sonra diğer ilanlar çekilir
+												$matched = \App\Models\JobPosting::whereHas('professions', function($q) use ($userProfessions) {
 													$q->whereIn('professions.id', $userProfessions);
-												})->latest()->take(10)->get();
+												})->with('professions')->latest()->take(10)->get();
+												$unmatched = \App\Models\JobPosting::whereDoesntHave('professions', function($q) use ($userProfessions) {
+													$q->whereIn('professions.id', $userProfessions);
+												})->with('professions')->latest()->take(10)->get();
+												$jobPostings = $matched->merge($unmatched)->take(10);
 											@endphp
 											@if($jobPostings->count())
-													<div id="job-listings">
-														@include('partials.job_listings', ['jobPostings' => $jobPostings])
-													</div>
+												<div id="job-listings">
+													@include('partials.job_listings', ['jobPostings' => $jobPostings])
+												</div>
 											@else
-												<div class="alert alert-info">Mesleklerinize uygun iş ilanı bulunamadı.</div>
+												<div class="alert alert-info">İş ilanı bulunamadı.</div>
 											@endif
 										</div>
 										<!--end::Card body-->
@@ -325,7 +331,7 @@
 																<table class="table table-bordered align-middle">
 																	<thead>
 																		<tr>
-																			<th>#</th>
+																			<th></th>
 																			<th>İlan Başlığı</th>
 																			<th>Firma</th>
 																			<th>Başvuru Tarihi</th>
@@ -336,8 +342,8 @@
 																		@foreach($jobApplications as $i => $app)
 																			<tr @if($i % 2 == 0) style="background-color: #e6f2ff;" @endif>
 																				<td>{{ $i+1 }}</td>
-																				<td>{{ $app->jobPosting ? $app->jobPosting->title : '-' }}</td>
-																				<td>{{ $app->jobPosting ? $app->jobPosting->company_name : '-' }}</td>
+																				<td>{{ $app->jobPosting ? $app->jobPosting->ilan_basligi : '-' }}</td>
+																				<td>{{ $app->jobPosting ? $app->jobPosting->sirket_adi : '-' }}</td>
 																				<td>{{ $app->created_at ? $app->created_at->format('d.m.Y H:i') : '-' }}</td>
 																				<td>{{ $app->status ?? 'Başvuru Yapıldı' }}</td>
 																			</tr>
@@ -445,6 +451,42 @@
 										<div class="card-body d-flex justify-content-between flex-column pb-1 px-0">
 											
 											
+											@php
+												$unemploymentApplications = \App\Models\UnemploymentApplication::with(['city', 'district'])
+													->where('user_id', auth()->id())
+													->latest()
+													->get();
+											@endphp
+											@if($unemploymentApplications->count())
+												<div class="table-responsive">
+													<table class="table table-bordered align-middle">
+														<thead>
+															<tr>
+																<th></th>																
+																<th>T.C. No</th>
+																<th>Fesih Tarihi</th>
+																<th>Başvuru Tarihi</th>
+																<th>Şehir</th>
+																<th>İlçe</th>
+															</tr>
+														</thead>
+														<tbody>
+															@foreach($unemploymentApplications as $i => $app)
+																<tr @if($i % 2 == 0) style="background-color: #e6f2ff;" @endif>
+																	<td>{{ $i+1 }}</td>																	
+																	<td>{{ $app->id_number }}</td>
+																	<td>{{ $app->fesih_tarihi ? \Carbon\Carbon::parse($app->fesih_tarihi)->format('d.m.Y') : '-' }}</td>
+																	<td>{{ $app->basvuru_tarihi ? \Carbon\Carbon::parse($app->basvuru_tarihi)->format('d.m.Y') : '-' }}</td>
+																	<td>{{ $app->city ? $app->city->name : '-' }}</td>
+																	<td>{{ $app->district ? $app->district->name : '-' }}</td>
+																</tr>
+															@endforeach
+														</tbody>
+													</table>
+												</div>
+											@else
+												<div class="alert alert-info">Henüz işsizlik ödeneği başvurunuz bulunmamaktadır.</div>
+											@endif
 										</div>
 										<!--end::Card body-->
 									</div>

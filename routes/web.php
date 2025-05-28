@@ -76,6 +76,9 @@ Route::put('/profile/profession/{profession}', [ProfessionController::class, 'up
 // Kullanıcıya Özel Rotalar
 // Bu rotalar yalnızca giriş yapmış kullanıcılar tarafından erişilebilir.
 Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     // Kişisel Bilgiler
     Route::get('/profile/personal', [UserProfileController::class, 'personalInfo'])->name('user.personalInfo');
     Route::post('/profile/personal', [UserProfileController::class, 'updatePersonalInfo'])->name('user.updatePersonalInfo');
